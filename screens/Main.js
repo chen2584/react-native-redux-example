@@ -1,14 +1,15 @@
+// This page doesn't use redux global state!
+// If you want the example how to connect to redux you can see on Profile.js
+
 import React ,{ Component } from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 import { StackNavigator, addNavigationHelpers }  from 'react-navigation';
-import { connect } from 'react-redux';
 
 import ProfileScreen from './Profile';
 
 export default class MainScreen extends Component {
 
     render() {
-        //console.log(this.props);
         return (
             <View style={styles.container}>
                 <Button title="go to Profile Page" onPress={() => this.props.navigation.navigate("Profile")}/>

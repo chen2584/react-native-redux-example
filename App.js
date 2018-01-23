@@ -1,3 +1,5 @@
+// App.js -> Main.js -> Profile.js
+
 import React, { Component } from 'react';
 import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
@@ -48,7 +50,6 @@ const navReducer = (state, action) => {
 
 export class App extends Component {
   render() {
-      const { nav, user } = this.props;
       return (
         <AppNavigator 
           navigation={addNavigationHelpers({

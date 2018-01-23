@@ -10,16 +10,15 @@ export class ProfileScreen extends Component {
     }
 
     render() {
-        console.log(this.props);
+        //console.log(this.props);
         return (
-            <Text>Profile Screen {this.props.user.name}</Text>
+            <Text>Profile Screen. My name is {this.props.user.name}</Text>
         );
     }
 }
 
 const mapStatetoProps = (state) => {
     return {
-        //nav: state.nav,
         user: state.user
     };
   }
