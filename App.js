@@ -1,12 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
+
 import MainScreen from './screens/Main';
 import ProfileScreen from './screens/Profile';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
@@ -46,6 +41,8 @@ const AppNavigator = StackNavigator({
 
 const navReducer = (state, action) => {
   const newState = AppNavigator.router.getStateForAction(action, state);
+
+  // Simply return the original `state` if `nextState` is null or undefined.
   return newState || state;
 };
 
@@ -78,26 +75,7 @@ export default class rootApp extends Component {
 const mapStatetoProps = (state) => {
   return {
       nav: state.nav,
-      //user: state.user
   };
 }
-
-/*const mapDispatchtoProps = (dispatch) => {
-  return {
-      setName: (name) => {
-          dispatch({
-              type: "setName",
-              payload: name,
-          });
-      },
-      setSalary: (salary) => {
-        dispatch({
-            type: "setSalary",
-            payload: salary,
-        });
-    }
-
-  }
-}*/
 
 const ConnectRedux = connect(mapStatetoProps)(App);

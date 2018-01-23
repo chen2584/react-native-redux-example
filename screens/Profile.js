@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 export class ProfileScreen extends Component {
     componentDidMount() {
+
+        //You can change global state by this
         this.props.navigation.dispatch({type: "setName", payload: "Chen Semapat"})
     }
 
