@@ -41,14 +41,6 @@ const AppNavigator = StackNavigator({
   },
 });
 
-export class App extends Component {
-  render() {
-      return (
-        <AppNavigator />
-    );
-  }
-}
-
 export const store = createStore(userReducer);
 
 export default class rootApp extends Component {
@@ -61,4 +53,4 @@ export default class rootApp extends Component {
   }
 }
 
-const ConnectRedux = connect()(App);
+const ConnectRedux = connect()(AppNavigator);
