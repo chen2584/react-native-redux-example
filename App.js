@@ -9,7 +9,7 @@ import ProfileScreen from './screens/Profile';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 
 
-const initialUser = { name: "Chen", salary: 0 };
+const initialUser = { name: "Chenzz", salary: 0 };
 
 userReducer = (state=initialUser, action) => {
   switch (action.type) {
@@ -41,27 +41,15 @@ const AppNavigator = StackNavigator({
   },
 });
 
-const navReducer = (state, action) => {
-  const newState = AppNavigator.router.getStateForAction(action, state);
-
-  // Simply return the original `state` if `nextState` is null or undefined.
-  return newState || state;
-};
-
 export class App extends Component {
   render() {
       return (
-        <AppNavigator 
-          navigation={addNavigationHelpers({
-              dispatch: this.props.dispatch,
-              state: this.props.nav,
-          })}
-        />
+        <AppNavigator />
     );
   }
 }
 
-export const store = createStore(combineReducers({nav: navReducer, user: userReducer}));
+export const store = createStore(userReducer);
 
 export default class rootApp extends Component {
   render() {
@@ -73,10 +61,4 @@ export default class rootApp extends Component {
   }
 }
 
-const mapStatetoProps = (state) => {
-  return {
-      nav: state.nav,
-  };
-}
-
-const ConnectRedux = connect(mapStatetoProps)(App);
+const ConnectRedux = connect()(App);

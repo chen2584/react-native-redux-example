@@ -5,12 +5,11 @@ import { connect } from 'react-redux';
 export class ProfileScreen extends Component {
     componentDidMount() {
 
-        //You can change global state by this
-        this.props.navigation.dispatch({type: "setName", payload: "Chen Semapat"})
+        this.props.dispatch({ type: 'setName', payload: 'Chen Semapatzzz'})
     }
 
     render() {
-        //console.log(this.props);
+        console.log(this.props);
         return (
             <Text>Profile Screen. My name is {this.props.user.name}</Text>
         );
@@ -19,7 +18,7 @@ export class ProfileScreen extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        user: state.user
+        user: state
     };
   }
 
